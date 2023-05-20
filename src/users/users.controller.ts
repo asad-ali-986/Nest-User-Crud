@@ -5,22 +5,21 @@ import { UserService } from './user.service'
 @Controller('users')
 export class UsersController {
    userService : UserService;
-   constructor () {
+    constructor () {
       this.userService = new UserService();
-   }
- @Get()
- listUsers(){
-   console.log(">>>>>>>>>>>>>>>>>");
-   return this.userService.findAll();
- }
+    }
+  @Get()
+  listUsers() {
+    return this.userService.findAll();
+  }
 
- @Post()
- createUsers(@Body() body:CreateUserDto){
+  @Post()
+  createUsers(@Body() body:CreateUserDto) {
     this.userService.create(body);
- }
+  }
 
- @Get('/:id')
- getUsers(@Param() id:string){
-   return this.getUsers(id);
- }
+  @Get('/:id')
+  getUsers(@Param() id:string) {
+    return this.getUsers(id);
+  }
 }
