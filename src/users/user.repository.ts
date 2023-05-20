@@ -21,4 +21,15 @@ export class UserRepository {
         users[id] = {id, user};
         await writeFile('message.json', JSON.stringify(users));
     }
+
+    async delete (id: string) {
+        const data = await readFile('message.json', 'utf8')
+        const users = JSON.parse(data);
+        delete users[id];
+        await writeFile('message.json', JSON.stringify(users));
+    }
+
+    async deleteAll () {
+        await writeFile('message.json', JSON.stringify({}));
+    }
 }

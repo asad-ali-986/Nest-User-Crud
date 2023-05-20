@@ -17,4 +17,12 @@ export class UserService {
     create (user: any) {
         return this.userRepo.create(user);
     }
+
+    delete (id: string) {
+        return this.userRepo.delete(id);
+    }
+
+    deleteAll () {
+        return this.userRepo.deleteAll();
+    }
 }
